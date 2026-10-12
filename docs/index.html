@@ -30,6 +30,19 @@ a:hover{text-decoration:underline}
 b{font-weight:700}
 .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
 
+/* views & sport tabs */
+.view{display:none}
+.view.active{display:block}
+.sport-tabs{display:flex;gap:6px}
+.sport-tab{border:1.5px solid var(--ink);background:var(--paper);border-radius:999px;padding:4px 13px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--sans);color:var(--ink)}
+.sport-tab.active{background:var(--ink);color:#f4efe4}
+.sport-tab:active{transform:scale(.95)}
+.sport-tab.soon{opacity:.4;cursor:default}
+body[data-view="pp"] .a-bd{display:none}
+body[data-view="bd"] .a-pp{display:none}
+.note-quote{background:rgba(46,95,139,.06);border:1.5px dashed var(--dan);border-radius:12px;padding:14px 16px;font-size:13.5px;margin-top:14px;color:#41506b}
+.note-quote b{color:var(--dan)}
+
 /* nav */
 nav{position:sticky;top:0;z-index:100;background:rgba(247,243,234,.94);backdrop-filter:blur(8px);border-bottom:1.5px solid var(--ink)}
 .nav-in{display:flex;align-items:center;gap:18px;padding:12px 22px;max-width:1080px;margin:0 auto;flex-wrap:wrap}
@@ -134,16 +147,27 @@ footer.site a{color:#9fc3e8}
 
 <nav><div class="nav-in">
   <span class="brand">各自<em>为战</em></span>
-  <a href="#matrix">差异速览</a>
-  <a href="#rules">规则分岔</a>
-  <a href="#axioms">公理镜像</a>
-  <a href="#transfer">迁移表</a>
-  <a href="#data">数据</a>
+  <span class="sport-tabs">
+    <button class="sport-tab active" data-sport="pp">匹克球</button>
+    <button class="sport-tab" data-sport="bd">羽毛球</button>
+    <button class="sport-tab soon" title="制作中">🏓</button>
+    <button class="sport-tab soon" title="制作中">🎾</button>
+  </span>
+  <a class="a-pp" href="#matrix">差异速览</a>
+  <a class="a-pp" href="#rules">规则分岔</a>
+  <a class="a-pp" href="#axioms">公理镜像</a>
+  <a class="a-pp" href="#transfer">迁移表</a>
+  <a class="a-pp" href="#data">数据</a>
+  <a class="a-bd" href="#bd-matrix">差异速览</a>
+  <a class="a-bd" href="#bd-rules">规则分岔</a>
+  <a class="a-bd" href="#bd-axioms">公理平移</a>
+  <a class="a-bd" href="#bd-transfer">迁移表</a>
+  <a class="a-bd" href="#bd-data">数据</a>
   <a class="fam" href="https://liyuankui.github.io/" target="_blank">三板斧家族 →</a>
 </div></nav>
 
-<header class="hero"><div class="wrap">
-  <div class="kicker">RACKET SPORTS · 匹克球先行</div>
+<header class="hero view active" id="hero-pp"><div class="wrap">
+  <div class="kicker">RACKET SPORTS · 匹克球 EDITION</div>
   <h1>各自<em>为战</em></h1>
   <div class="vs-line">
     <span class="vs-pill dan">单打 = 击剑</span>
@@ -161,7 +185,7 @@ footer.site a{color:#9fc3e8}
   </div>
 </div></header>
 
-<div class="wrap">
+<div class="wrap view active" id="view-pp">
 
   <!-- ============ 差异速览 ============ -->
   <section id="matrix">
@@ -401,9 +425,284 @@ footer.site a{color:#9fc3e8}
     <div class="sec-head"><h2>下<em style="color:var(--zhong)">一站</em></h2></div>
     <p class="sec-sub">同一副骨架（规则分岔 → 十维对照 → 公理镜像 → 迁移清单），长在不同运动上。</p>
     <div class="teaser">
-      <div class="t-card"><span class="em">🏸</span><b>羽毛球</b><small>单双差异最大的项目：马拉松象棋 vs 闪电配合</small></div>
+      <div class="t-card" style="border-style:solid"><a href="#bd" class="goto-bd" style="color:inherit;text-decoration:none"><span class="em">🏸</span><b>羽毛球</b><small>本站已上线——单打打角，双打打缝</small></a></div>
       <div class="t-card"><span class="em">🏓</span><b>乒乓球</b><small>轮转发球与斜线必须——规则强制的双人舞</small></div>
       <div class="t-card"><span class="em">🎾</span><b>网球</b><small>唯一有单打窄场的项目，分岔写在场地上</small></div>
+    </div>
+  </section>
+
+</div>
+
+<div class="wrap view" id="view-bd">
+
+<header class="hero" id="hero-bd" style="padding:44px 0 10px;text-align:center"><div class="wrap">
+  <div class="kicker">BADMINTON EDITION · 羽毛球</div>
+  <h1 style="font-size:clamp(36px,7vw,64px)">单打打角，双打打缝</h1>
+  <div class="vs-line">
+    <span class="vs-pill dan">单打 = 围棋</span>
+    <span class="vs-x">×</span>
+    <span class="vs-pill shuang">双打 = 鸳鸯阵</span>
+  </div>
+  <p class="sub">羽毛球是匹克球的镜像反例：规则把场地线真的画成了两套，但公理层反而无墙可拆——<b>同一组公理，两个工作点。</b>这里的差异轴也独一无二：同一拍「起球」，单打是中性过渡，双打是交出进攻权。</p>
+</div></header>
+
+  <!-- ============ bd 差异速览 ============ -->
+  <section id="bd-matrix">
+    <div class="sec-head"><h2>差异<em style="color:var(--dan)">速览</em></h2></div>
+    <p class="sec-sub">十二维对照——先记核心轴：<b>lift 的语义反转</b>（球一起，单打继续打、双打全队转防守）。</p>
+    <div class="grid g2">
+
+      <div class="card"><h3>1 · 起球（lift/clear）</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 中性过渡</b>防守性高远球常规化——用高度换时间回防，是拉吊交易的基石。</div>
+          <div class="side shuang"><b>双打 · 交出进攻权</b>球一起，全队转防守：对面两名攻击手前后叠层等着连杀。</div>
+        </div>
+        <div class="why">同一拍，两种含义——这是羽毛球单双差异的总开关。</div>
+      </div>
+
+      <div class="card"><h3>2 · 发球</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 高远球常态化</b>发深到底线，用高度换回防时间；flick 做变化。</div>
+          <div class="side shuang"><b>双打 · 低发球统治</b>发球=进攻起点；高发球直接送对手跳杀，只做偶发偷袭。</div>
+        </div>
+        <div class="why">根源是发球区几何：双打发球区宽而浅（短 76cm），高球飞得再远也在杀球射程。</div>
+      </div>
+
+      <div class="card"><h3>3 · 节奏</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 1.0 拍/秒</b>回合约 8.8 秒、8.9 拍——clear-drop-smash 层层构筑。</div>
+          <div class="side shuang"><b>双打 · 1.5 拍/秒</b>回合更短但拍数不少：四手接力，平抽快挡主导。</div>
+        </div>
+        <div class="why">每拍飞行距离短、四人接力——单拍决策时间被压缩一半。</div>
+      </div>
+
+      <div class="card"><h3>4 · 站位哲学</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 回中</b>每拍后回归中心：单人覆盖对称场地，中心是最优点。</div>
+          <div class="side shuang"><b>双打 · 阵型即站位</b>进攻前后站、防守左右站——轮转由「谁起球/谁下压」触发，像呼吸。</div>
+        </div>
+        <div class="why">回中是单人几何解；阵型槽位是双人分工解。</div>
+      </div>
+
+      <div class="card"><h3>5 · 靶子</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 四角</b>窄长场四角调动，对角线 14.37m 是最长调动距离。</div>
+          <div class="side shuang"><b>双打 · 中缝与追身</b>打两人之间的接缝制造「你的/我的」延迟，打持拍肩髋，打弱者。</div>
+        </div>
+        <div class="why">同一公理（空间即棋盘）生成相反处方：单打拉对角是基本功，双打推直线防拦截。</div>
+      </div>
+
+      <div class="card"><h3>6 · 杀球</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 终结选项</b>角度平、恢复代价高——杀完没人兜底，clear 与调动才是主武器。</div>
+          <div class="side shuang"><b>双打 · 施压引擎</b>杀-挡-杀循环：前场队友封网兜底，连续下压逼对方起球。</div>
+        </div>
+        <div class="why">史上最快杀球全部出自双打选手——前场有人兜底，才敢把速度拉满。</div>
+      </div>
+
+      <div class="card"><h3>7 · 平抽挡</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 偶发战术</b>中场平抽易被挡网反杀，无人补身后。</div>
+          <div class="side shuang"><b>双打 · 主战带</b>平=不给高度=不给进攻权——公理二在双打参数下的生成物。</div>
+        </div>
+        <div class="why">平抽挡靠网前拦截者封角度才成立：它是均衡产物，不是公理。</div>
+      </div>
+
+      <div class="card"><h3>8 · 防守</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 中央保守</b>挡网为主、挑后场为辅，必须保平衡防四角。</div>
+          <div class="side shuang"><b>双打 · 左右分守</b>人均覆盖减半，容错更高：挡、抽、挑各有专职。</div>
+        </div>
+        <div class="why">双打允许更高风险回球，因为身后有半个场的队友。</div>
+      </div>
+
+      <div class="card"><h3>9 · 假动作</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 骗重心</b>一对一 trickery：一个架拍出三种球，骗的是对方的移动。</div>
+          <div class="side shuang"><b>双打 · 骗时间</b>拍速快到留不住对方重心——假杀变吊、变节奏，骗的是反应窗口。</div>
+        </div>
+        <div class="why">引拍一致性单双通用，但欺骗对象从空间换成了时间。</div>
+      </div>
+
+      <div class="card"><h3>10 · 体能</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 马拉松</b>移动 44.6m/分钟、心率均值 173——有效比赛时间 34.1%，持续覆盖。</div>
+          <div class="side shuang"><b>双打 · 反射脉冲</b>高频短冲刺+神经反应；死球更多（有效时间仅 19.2%）。</div>
+        </div>
+        <div class="why">「双打更快」但「单打更连续」——两种完全不同的累法。</div>
+      </div>
+
+      <div class="card"><h3>11 · 沟通</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 无需</b>独享全部判断权。</div>
+          <div class="side shuang"><b>双打 · 沟通即战术</b>中缝归属赛前预分配、持续喊话——沉默是漏洞的最大来源。</div>
+        </div>
+        <div class="why">双打的信息不对称是最大破绽：口号系统就是分布式决策协议。</div>
+      </div>
+
+      <div class="card"><h3>12 · 比赛性格</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 围棋</b>四角落子、厚薄攻杀、官子（第三局）见体能。</div>
+          <div class="side shuang"><b>双打 · 鸳鸯阵</b>前封后杀、长短相济、变阵呼吸——戚继光的阵法在球场上复活。</div>
+        </div>
+        <div class="why">围棋试应手=付费侦察；鸳鸯阵旗语=手势与耳语。</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ bd 规则分岔 ============ -->
+  <section id="bd-rules">
+    <div class="sec-head"><h2>规则<em style="color:var(--zhong)">分岔</em></h2></div>
+    <p class="sec-sub">与匹克球相反：羽毛球的规则差异<b>画在场地上</b>——线就是两套。条文为 BWF Laws 现行版（2025），并预告 2027 新制。</p>
+    <div class="grid g3">
+
+      <div class="card"><span class="rule-tag">种子</span>
+        <h3>场地线两套</h3>
+        <p><b>回合差异只有宽度</b>：单打窄 92cm（两侧通道出界），双打全宽 6.10m；13.4m 全长两边共用。<b>发球差异在深度</b>：双打发球区宽但<b>短 76cm</b>（到双打后发球线），单打窄但到底线。</p>
+        <div class="ref">反直觉：双打发球「宽而浅」，单打「窄而深」——方向相反。</div>
+      </div>
+
+      <div class="card"><span class="rule-tag">分岔 ①</span>
+        <h3>发球轮转</h3>
+        <p><b>双打四人循环</b>：初始发→初始接的搭档→初始发的搭档→初始接（Law 11.4）；胜分<b>同一人换区续发</b>。<b>单打</b>：失分即换对方发。⚠️ 过时说法「第一/二发球员」2006 年起已废除——老教程还在传。</p>
+        <div class="ref">现行 Laws 10/11（worldbadminton.com 官方镜像核验）。</div>
+      </div>
+
+      <div class="card"><span class="rule-tag">分岔 ②</span>
+        <h3>奇偶定边</h3>
+        <p>两边都是「偶右奇左」，但看谁的分：<b>单打看发球员个人分</b>（Law 10.1），<b>双打发球方看总分</b>（Law 11.1）。0 为偶，开局右区。</p>
+        <div class="ref">与匹克球 5.A.1/5.B.3 同构——拍类运动的通用协议。</div>
+      </div>
+
+      <div class="card"><span class="rule-tag">分岔 ½</span>
+        <h3>Doubles-only 两条</h3>
+        <p>接球员的搭档击中发球＝fault（13.2.3）；同队两人连续击球＝fault（13.3.8）。其余 faults 与 lets <b>单双完全共用</b>。接发方搭档站位自由（Law 9.5）。</p>
+        <div class="ref">双打还有第三种游戏：混双——现代阵型跟着进攻威胁走，不跟性别走。</div>
+      </div>
+
+      <div class="card"><span class="rule-tag">时效</span>
+        <h3>3×15 新制（2027）</h3>
+        <p>BWF 2026 年 4 月年会通过：<b>2027-01-04 起</b>三局 15 分取代 21 分制（14 平净胜 2、20 平打第 21 分、8 分暂停/换端）；3×21 保留为国内备选，印度已先行。球员阵营分裂中。</p>
+        <div class="ref">21 分制自 2006 实行二十年——这是它第一次被整体替换。</div>
+      </div>
+
+      <div class="card"><span class="rule-tag">全同</span>
+        <h3>1.15m 发球高度</h3>
+        <p>固定发球高度规则（击球瞬间整个球头低于 1.15m）2018 年起取代腰际判罚，<span style="white-space:nowrap"><b>单双同规</b>——</span>裁判不再看腰，看标尺。</p>
+        <div class="ref">网柱也单双同位：单打不移柱，柱永远立在双打边线上。</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ bd 公理平移 ============ -->
+  <section id="bd-axioms">
+    <div class="sec-head"><h2>公理<em style="color:var(--bing)">平移</em></h2></div>
+    <p class="sec-sub">匹克球需要分型重建（拆墙证伪「慢即快」）；羽毛球不需要——<b>三公理皆几何/物理/生理级，拆墙测试三过。</b>羽毛球双打永不成静态墙：攻式前后阵暴露后场两角，守式左右阵暴露中缝，轮转是呼吸，不是封盘。变的是工作点，不是公理。</p>
+
+    <div class="mirror">
+      <div class="m-side m-dan"><b>单打 · 空间即棋盘（权重最高）</b>格子=四角：对角线 14.37m 是最长调动距离，拉对角是基本功，深度压后场再吊前场。</div>
+      <div class="arrow">·</div>
+      <div class="m-side m-shuang"><b>双打 · 同一公理，格子重定义</b>格子=中缝/追身/身后：推直线防拦截，「斜线容易被抓」——对角线估值在双打反转。</div>
+    </div>
+    <div class="mirror">
+      <div class="m-side m-dan"><b>单打 · 高低即攻守（交织成交易）</b>拉吊=空间×高度互换：高远球是基石，不是让渡。</div>
+      <div class="arrow">·</div>
+      <div class="m-side m-shuang"><b>双打 · 同一公理，权重上移至顶点</b>攻防轮转就是它的状态机：让对方起球是主旋律，平抽挡=不给高度不给进攻权。</div>
+    </div>
+    <div class="mirror">
+      <div class="m-side m-dan"><b>单打 · 持久即真相（公理级）</b>单人覆盖全场，第三局是照妖镜——淘汰赛男单第三局回合显著变长，双打几乎不变。</div>
+      <div class="arrow">·</div>
+      <div class="m-side m-shuang"><b>双打 · 同一公理，降为半公理</b>覆盖分担、间歇爆发——但残差仍照见：连杀三拍的队，第三局也会软。</div>
+    </div>
+    <div class="mirror">
+      <div class="m-side m-dan"><b>单打 · 界面：读</b>场上只剩对手，界面方向反转：付费侦察、连攻弱侧、引拍一致藏意图。</div>
+      <div class="arrow">·</div>
+      <div class="m-side m-shuang"><b>双打 · 界面：补位（+读为辅）</b>对齐队友成阵：轮转、分守、喊话——读对手仍在，退居副界面。</div>
+    </div>
+
+    <div class="verdict">
+      判据同一条：<em>规则级公理跨场景稳定，均衡级随玩家数变</em>。匹克球病在把「两人墙的均衡」（慢即快）立成了公理；羽毛球三公理的根分别扎在场地尺寸、网高与球不落地、心肺极限里——墙拆了，它们纹丝不动。真正欠的是两笔：单打界面的「读」要补位，翻译机制（缩小棋盘/交出高点/调节节奏）跨单双保留。
+    </div>
+  </section>
+
+  <!-- ============ bd 迁移表 ============ -->
+  <section id="bd-transfer">
+    <div class="sec-head"><h2>迁移<em style="color:var(--dan)">清单</em></h2></div>
+    <p class="sec-sub">单双互迁都贵：发球战术库几乎反向，轮转与回中的肌肉记忆互斥。</p>
+    <div class="grid g2">
+      <div class="tr-col ok">
+        <header>✓ 能带走</header>
+        <ul>
+          <li>握拍与基本拍型（生物力学与人数无关）</li>
+          <li>杀球、吊球的力学骨架</li>
+          <li>基础步法框架（启动-移动-回动）</li>
+          <li>引拍一致性与假动作原理</li>
+          <li>打空当原理——对象从「缝」换成「身后」</li>
+          <li>心态与读书：观察重心、反套路</li>
+        </ul>
+      </div>
+      <div class="tr-col no">
+        <header>✗ 必须重写（单→双）</header>
+        <ul>
+          <li>lift 习惯：中性过渡 → 投降动作</li>
+          <li>高远发球默认 → 低发球统治</li>
+          <li>回中本能 → 阵型槽位与轮转</li>
+          <li>四角目标 → 中缝与打人</li>
+          <li>「每球都抢」→ 信搭档、守槽位</li>
+          <li>网前容错 → 必须贴网（双打搓球更险）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note-quote"><b>十年双打笔记（节选）</b>——单双归属一眼可见：「让对方起球」是双打公理二的座右铭；「推直线效果好，斜线容易被抓」只在有拦截者时成立；「挡直线后跟直线，挡斜线后跟斜线」是双打轮转的肌肉记忆——<b>单打慎用：盲目跟网等于裸奔后场。</b>而「后发制人，观察对手移动/重心/位置」单双通吃：那是「读」。</div>
+  </section>
+
+  <!-- ============ bd 数据 ============ -->
+  <section id="bd-data">
+    <div class="sec-head"><h2>职业<em style="color:var(--bing)">数据</em></h2></div>
+    <p class="sec-sub">羽毛球是匹克球的镜像反例：奥运五金、BWF 巡回赛统一奖金池——单双都是一等公民。</p>
+    <div class="grid g3">
+      <div class="card">
+        <div class="bignum">1.5<small> 拍/秒</small></div>
+        <div class="cap">男双出球频率 vs 男单 1.0——但回合更短拍数不少：四手接力压缩的是<b>决策时间</b>不是拍数。</div>
+        <div class="ref">Winata et al. 2025 · PMC11897274</div>
+      </div>
+      <div class="card">
+        <div class="bignum">57<small> 拍</small></div>
+        <div class="cap"><b>rally 之王是女双</b>：9.7-10.4 秒、11.8 拍、最长 57 拍——超过所有单双打项目。「双打更快」主要是男双现象。</div>
+        <div class="ref">Winata 2025 · Hoffmann 2024</div>
+      </div>
+      <div class="card">
+        <div class="bignum">44.6<small> m/min</small></div>
+        <div class="cap">单打移动速率；女单单场约 3.9km，心率均值 173.5、峰值 190——<b>单打是持续负荷</b>（有效时间 34.1% vs 男双 19.2%）。</div>
+        <div class="ref">Torres-Luque 2019 Rio · PMC6457257</div>
+      </div>
+      <div class="card">
+        <div class="bignum">332<small> km/h</small></div>
+        <div class="cap">傅海峰 2005 年<b>比赛内</b>杀球纪录——史上最快杀球全部出自双打选手（实验条件极值 565）：前场有人兜底才敢拉满速。</div>
+        <div class="ref">worldbadminton.com · 注意测试条件差异</div>
+      </div>
+      <div class="card">
+        <div class="bignum">5<small> = 5 金</small></div>
+        <div class="cap">奥运自 1996 起五单项并列——单双平权是羽毛球基因。按人头总决赛单打冠军约 2 倍（$240k vs $252k/对）：制度平等里的算术差。</div>
+        <div class="ref">olympics.com · 2025 BWF World Tour Finals</div>
+      </div>
+      <div class="card">
+        <div class="bignum">2027<small> · 1 · 4</small></div>
+        <div class="cap"><b>3×15 新制生效日</b>：14 平净胜 2、封顶 21、8 分暂停。兼项现实：郑思维 17 岁前是青年单打，转双打成混双 GOAT——单双分流从青少年开始。</div>
+        <div class="ref">BWF 2026-04 AGM · Olympics.com</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ bd 下一站 ============ -->
+  <section id="bd-more">
+    <div class="sec-head"><h2>下<em style="color:var(--zhong)">一站</em></h2></div>
+    <div class="teaser">
+      <div class="t-card"><a href="#pp" class="goto-pp" style="color:inherit;text-decoration:none"><span class="em">🥒</span><b>回看匹克球篇</b></a><small>双打打人，单打打场</small></div>
+      <div class="t-card"><span class="em">🏓</span><b>乒乓球</b><small>轮转发球与斜线必须——规则强制的双人舞</small></div>
+      <div class="t-card"><span class="em">🎾</span><b>网球</b><small>唯一有单打窄道的项目，分岔写在场地上</small></div>
     </div>
   </section>
 
@@ -433,8 +732,30 @@ document.getElementById('shareBtn').onclick = async () => {
   } catch (e) {}
 };
 document.querySelectorAll('.nav-in a[href^="#"]').forEach(a => a.addEventListener('click', () => {
-  track('nav_click', { to: a.getAttribute('href').slice(1) });
+  track('nav_click', { to: a.getAttribute('href').slice(1), sport: document.body.dataset.view || 'pp' });
 }));
+
+// ── sport tabs ─────────────────────────────────────────
+const SPORT_TITLES = { pp: '各自为战 · 单打 vs 双打 | 匹克球', bd: '各自为战 · 单打 vs 双打 | 羽毛球' };
+function setSport(sp, first) {
+  document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + sp || v.id === 'hero-' + sp));
+  document.body.dataset.view = sp;
+  document.querySelectorAll('.sport-tab[data-sport]').forEach(t => t.classList.toggle('active', t.dataset.sport === sp));
+  document.title = SPORT_TITLES[sp] || SPORT_TITLES.pp;
+  if (!first) {
+    history.replaceState(null, '', sp === 'pp' ? '#pp' : '#' + sp);
+    track('sport_switch', { from: document.body.dataset.view === 'bd' ? 'pp' : 'bd', to: sp });
+  }
+  window.scrollTo({ top: 0 });
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.sport-tab[data-sport]').forEach(t => t.addEventListener('click', () => setSport(t.dataset.sport)));
+  document.querySelectorAll('.goto-bd').forEach(a => a.addEventListener('click', e => { e.preventDefault(); setSport('bd'); }));
+  document.querySelectorAll('.goto-pp').forEach(a => a.addEventListener('click', e => { e.preventDefault(); setSport('pp'); }));
+  const h = location.hash;
+  if (h === '#bd' || h === '#pp') setSport(h.slice(1), false);
+  else setSport('pp', true);
+});
 
 // ── PostHog Telemetry ─────────────────────────────────
 const POSTHOG_KEY = 'phc_AbKVVXPDZKThtUacCHhFOITuBczUvLmPStN1JAZs93e';
@@ -465,7 +786,7 @@ function track(event, props = {}) {
     if (!localStorage.getItem(UID_KEY)) {
         localStorage.setItem(UID_KEY, 'u-' + Math.random().toString(36).slice(2, 10));
     }
-    track('page_view', {});
+    track('page_view', { sport: (location.hash === '#bd' ? 'bd' : 'pp') });
 })();
 </script>
 </body>
