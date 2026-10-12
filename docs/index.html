@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>各自为战 · 单打 vs 双打 | 匹克球先行</title>
+<meta name="description" content="单打打场，双打打人——匹克球单双差异一页看懂：11 维对照、规则分岔点、公理镜像、双打→单打迁移表、职业数据卡。羽毛球/乒乓/网球 制作中。">
+<meta property="og:title" content="各自为战 · 单打 vs 双打">
+<meta property="og:description" content="双打是下棋，单打是击剑。匹克球单双差异一页看懂——规则分岔只有两处半，战术宇宙整个反转。">
+<meta property="og:image" content="https://liyuankui.github.io/geziweizhan/og-cover.png">
+<meta property="og:url" content="https://liyuankui.github.io/geziweizhan/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23221e18'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23f4efe4' font-family='Songti SC,serif' font-weight='900'%3E战%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#221e18; --cream:#f7f3ea; --paper:#fffdf8;
+  --dan:#2e5f8b;   /* 单打 · 蓝 */
+  --shuang:#a8722a;/* 双打 · 赭 */
+  --bing:#bf3a26;  /* 强调 · 朱 */
+  --li:#2e5f8b; --zhong:#a8722a;
+  --serif:'Songti SC','Noto Serif SC',Georgia,serif;
+  --sans:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+*{line-break:strict}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.75}
+a{color:var(--dan);text-decoration:none}
+a:hover{text-decoration:underline}
+b{font-weight:700}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,243,234,.94);backdrop-filter:blur(8px);border-bottom:1.5px solid var(--ink)}
+.nav-in{display:flex;align-items:center;gap:18px;padding:12px 22px;max-width:1080px;margin:0 auto;flex-wrap:wrap}
+.brand{font-family:var(--serif);font-weight:900;font-size:19px;color:var(--ink)}
+.brand em{font-style:normal;color:var(--bing)}
+.nav-in a{font-size:13.5px;color:#6a6152}
+.nav-in a.fam{margin-left:auto;color:var(--ink);font-weight:700}
+
+/* hero */
+.hero{padding:64px 0 40px;text-align:center}
+.kicker{font-size:12px;letter-spacing:.35em;color:#8a8172;font-weight:700;margin-bottom:14px}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(44px,9vw,84px);line-height:1.08;letter-spacing:.02em}
+h1 em{font-style:normal;color:var(--bing)}
+.vs-line{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:22px;flex-wrap:wrap}
+.vs-pill{font-family:var(--serif);font-weight:900;font-size:clamp(17px,3.4vw,22px);padding:6px 18px;border:2px solid var(--ink);border-radius:999px;background:var(--paper)}
+.vs-pill.dan{color:#fff;background:var(--dan);border-color:var(--dan)}
+.vs-pill.shuang{color:#fff;background:var(--shuang);border-color:var(--shuang)}
+.vs-x{font-family:var(--serif);font-weight:900;font-size:20px;color:var(--bing)}
+.hero .sub{max-width:660px;margin:26px auto 0;font-size:15.5px;color:#4a443a}
+.quote{margin:34px auto 0;max-width:560px;font-family:var(--serif);font-size:clamp(18px,3.6vw,23px);font-weight:700;line-height:1.6}
+.quote small{display:block;font-family:var(--sans);font-weight:400;font-size:12.5px;color:#8a8172;margin-top:8px}
+.src-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.src-pills span{font-size:12.5px;border:1.5px solid #d8d0c0;border-radius:999px;padding:5px 13px;background:var(--paper);color:#5c5445}
+
+/* sections */
+section{padding:56px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.sec-head h2{font-family:var(--serif);font-weight:900;font-size:clamp(26px,5vw,34px)}
+.sec-head h2 em{font-style:normal}
+.sec-sub{color:#5c5445;margin-bottom:26px;max-width:720px}
+
+/* matrix cards */
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1.5px solid var(--ink);border-radius:14px;padding:20px 20px 16px;box-shadow:3px 3px 0 rgba(34,30,24,.16)}
+.card h3{font-family:var(--serif);font-size:19px;font-weight:900;margin-bottom:12px}
+.duel{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.duel .side{border-radius:10px;padding:10px 12px;font-size:13.8px;line-height:1.65}
+.duel .side b{display:block;font-size:11.5px;letter-spacing:.18em;margin-bottom:4px}
+.duel .dan{background:rgba(46,95,139,.08);border:1px solid rgba(46,95,139,.35)}
+.duel .dan b{color:var(--dan)}
+.duel .shuang{background:rgba(168,114,42,.08);border:1px solid rgba(168,114,42,.35)}
+.duel .shuang b{color:var(--shuang)}
+.why{margin-top:10px;font-size:12.8px;color:#7a7263}
+.why::before{content:"▸ ";color:var(--bing)}
+
+/* rule cards */
+.rule-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;border:1.5px solid var(--ink);border-radius:6px;padding:1px 8px;margin-bottom:10px;background:#fff}
+.card p{font-size:14.5px}
+.card .ref{margin-top:12px;font-size:12.5px;color:#8a8172;border-top:1px dashed #d8d0c0;padding-top:10px}
+.ref a{color:var(--dan)}
+
+/* axiom mirror */
+.mirror{display:grid;grid-template-columns:1fr 34px 1fr;gap:8px;align-items:stretch;margin-bottom:12px}
+.mirror .m-side{border-radius:12px;padding:14px 15px;font-size:13.8px;line-height:1.65}
+.mirror .m-side b{display:block;font-family:var(--serif);font-size:16.5px;margin-bottom:5px}
+.mirror .m-dan{background:var(--dan);color:#eaf2f9}
+.mirror .m-dan b{color:#fff}
+.mirror .m-shuang{background:var(--shuang);color:#faf3e8}
+.mirror .m-shuang b{color:#fff}
+.mirror .arrow{display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:900;font-size:19px;color:var(--bing)}
+@media(max-width:640px){.mirror{grid-template-columns:1fr}.mirror .arrow{padding:2px 0}}
+.verdict{background:var(--ink);color:#f4efe4;border-radius:14px;padding:22px 24px;font-family:var(--serif);font-size:16.5px;line-height:1.8;margin-top:18px}
+.verdict em{font-style:normal;color:#e8b96a}
+
+/* transfer */
+.tr-col{border-radius:14px;border:1.5px solid var(--ink);overflow:hidden;background:var(--paper)}
+.tr-col header{padding:10px 16px;font-family:var(--serif);font-weight:900;font-size:16px;color:#fff}
+.tr-col.ok header{background:var(--dan)}
+.tr-col.no header{background:var(--bing)}
+.tr-col ul{list-style:none;padding:8px 16px 12px}
+.tr-col li{font-size:13.8px;padding:7px 0 7px 0;border-bottom:1px dashed #e2dac9}
+.tr-col li:last-child{border-bottom:none}
+.tr-col li::before{content:"✓ ";color:var(--dan);font-weight:900}
+.tr-col.no li::before{content:"✗ ";color:var(--bing);font-weight:900}
+
+/* data */
+.bignum{font-family:var(--serif);font-weight:900;font-size:clamp(34px,6vw,46px);line-height:1.1;color:var(--bing)}
+.bignum small{font-size:14px;color:#8a8172;font-family:var(--sans);font-weight:400}
+.card .cap{font-size:13.5px;margin-top:8px}
+
+/* teaser */
+.teaser{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.teaser{grid-template-columns:1fr}}
+.t-card{border:1.5px dashed #b9b0a0;border-radius:14px;padding:22px;text-align:center;color:#8a8172;background:transparent}
+.t-card .em{font-size:30px}
+.t-card b{font-family:var(--serif);font-size:17px;display:block;margin-top:6px;color:#6a6152}
+.t-card small{font-size:12.5px}
+
+/* footer */
+footer.site{margin-top:70px;background:var(--ink);color:#cfc6b4;padding:40px 0 46px;font-size:13px}
+footer.site a{color:#9fc3e8}
+.foot-in{display:flex;gap:30px;justify-content:space-between;flex-wrap:wrap}
+.disclaim{max-width:560px;line-height:1.8}
+.share-btn{background:var(--bing);color:#fff;border:none;border-radius:999px;padding:10px 20px;font-weight:700;font-size:14px;cursor:pointer;margin-top:12px}
+.share-btn:active{transform:scale(.96)}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-in">
+  <span class="brand">各自<em>为战</em></span>
+  <a href="#matrix">差异速览</a>
+  <a href="#rules">规则分岔</a>
+  <a href="#axioms">公理镜像</a>
+  <a href="#transfer">迁移表</a>
+  <a href="#data">数据</a>
+  <a class="fam" href="https://liyuankui.github.io/" target="_blank">三板斧家族 →</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">RACKET SPORTS · 匹克球先行</div>
+  <h1>各自<em>为战</em></h1>
+  <div class="vs-line">
+    <span class="vs-pill dan">单打 = 击剑</span>
+    <span class="vs-x">×</span>
+    <span class="vs-pill shuang">双打 = 下棋</span>
+  </div>
+  <p class="sub">同一条规则，两个宇宙。规则手册里单双的分岔只有两处半；但两人墙一旦拆除，发球、第三拍、dink、靶子、体能——<b>整个战术宇宙反转</b>。这里把差异一页说透，并把双打老球友的技能迁移清单一次给全。</p>
+  <div class="quote">双打打人，单打打场。<br>封盘的是棋，出剑的是你。
+    <small>—— 三板斧家族 · 单双差异篇</small>
+  </div>
+  <div class="src-pills">
+    <span>📐 2026 GPF 规则手册全文校对</span>
+    <span>📊 PPA 职业记谱研究（男/女各 1145 分）</span>
+    <span>🗣️ 职业选手与教练共识</span>
+  </div>
+</div></header>
+
+<div class="wrap">
+
+  <!-- ============ 差异速览 ============ -->
+  <section id="matrix">
+    <div class="sec-head"><h2>差异<em style="color:var(--dan)">速览</em></h2></div>
+    <p class="sec-sub">十维对照——蓝边是单打的世界，赭边是双打的世界。<b>先记一句话：单打打场，双打打人。</b></p>
+    <div class="grid g2">
+
+      <div class="card"><h3>1 · 发球</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 武器</b>深度＋力量压制，值得冒险——职业选手故意每局发丢两三个深球来保持压迫。</div>
+          <div class="side shuang"><b>双打 · 启动器</b>深而稳、留容错：得分从第三拍才开始，发球只是开局棋子。</div>
+        </div>
+        <div class="why">发球的价值是深度不是速度：职业赛 1105 个发球只打出 1 记 ACE。</div>
+      </div>
+
+      <div class="card"><h3>2 · 发球站位</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 贴中线 T</b>削减对手回球角度，并缩短自己的回位距离。</div>
+          <div class="side shuang"><b>双打 · 与搭档联动</b>站位为 stacking 阵型服务，左右分工由体系决定。</div>
+        </div>
+        <div class="why">几何不同：单打的站位问题=一个人的覆盖半径；双打=两个人的形状。</div>
+      </div>
+
+      <div class="card"><h3>3 · 接发之后</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 选择性跟近</b>上网即暴露边线穿越通道——男子职业主流跟近，女子主流留守底线，两种流派都赢球。</div>
+          <div class="side shuang"><b>双打 · 无条件双人上网</b>接发者与搭档一起压上厨房线，两人成墙是刚性教条。</div>
+        </div>
+        <div class="why">无墙则网前可被穿：单打的网前是「挣来的优势」，不是默认位置。</div>
+      </div>
+
+      <div class="card"><h3>4 · 第三拍</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 可选项</b>drive 与穿越优先；drop 降频、放高、选择性使用——第一要务是把球打进。</div>
+          <div class="side shuang"><b>双打 · 命脉</b>第三拍 drop 是全运动的战术基石，用来夺厨房线、买上网时间。</div>
+        </div>
+        <div class="why">双打两人封死 drive 通道才必须 drop；单打边线通道永远敞开。</div>
+      </div>
+
+      <div class="card"><h3>5 · 靶子</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 打场</b>场上永远有一个空格：宽角撕开、打身后、调开反打、lob 过网前、放短罚不回中。</div>
+          <div class="side shuang"><b>双打 · 打人</b>两人墙上的裂缝：中路、速度差、沟通错位。</div>
+        </div>
+        <div class="why">空当在双打根本不是变量；在单打是唯一永恒的靶。</div>
+      </div>
+
+      <div class="card"><h3>6 · Dink</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 快攻跳板</b>aggro-dink：带节奏带旋转的进攻型短球；对手不在网前时 dink 反而帮他上网。</div>
+          <div class="side shuang"><b>双打 · 主战场</b>斜线 dink 控厨房，磨到对方失误或加速。</div>
+        </div>
+        <div class="why">dink 的前提是双方都在网前且无空间可攻——单打空当常在，前提常不成立。</div>
+      </div>
+
+      <div class="card"><h3>7 · 覆盖与角度</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 440 平方英尺田径赛</b>独自护全场：角度是第一武器，急停变向难于跑空当——打他的动量反方向。</div>
+          <div class="side shuang"><b>双打 · 各守半宽</b>中路是第一武器：down the middle solves the riddle。</div>
+        </div>
+        <div class="why">单打每小时步数比双打多 15-19%；角度战术的物理来源就是同宽全场。</div>
+      </div>
+
+      <div class="card"><h3>8 · Lob</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 高风险奢侈品</b>仅当对手压在厨房线时使用；无搭档补救，失位即失分。</div>
+          <div class="side shuang"><b>双打 · 常规武器</b>打双上网的头顶空当，迫使整墙后撤。</div>
+        </div>
+        <div class="why">lob 是双刃剑：调开对手的同时也在调开自己——单打用它，预算要算清。</div>
+      </div>
+
+      <div class="card"><h3>9 · 花活</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 几近绝迹</b>stacking 定义上不存在；Erne / ATP 合法但机会稀少。</div>
+          <div class="side shuang"><b>双打 · 常备兵器</b>stacking 是核心阵型，Erne 与 ATP 是厨房争夺的常规选项。</div>
+        </div>
+        <div class="why">花活的土壤是两人配合与网前密集对峙——单打没有这片土壤。</div>
+      </div>
+
+      <div class="card"><h3>10 · 比赛性格</h3>
+        <div class="duel">
+          <div class="side dan"><b>单打 · 击剑</b>距离、时机、虚晃、一击——开放道上的对抗。</div>
+          <div class="side shuang"><b>双打 · 下棋</b>封盘结构内耐心换子，等墙上的裂缝。</div>
+        </div>
+        <div class="why">同一颗慢球：两人墙把它冻结成耐心，一人墙把它解冻成时间战。</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 规则分岔 ============ -->
+  <section id="rules">
+    <div class="sec-head"><h2>规则<em style="color:var(--zhong)">分岔</em></h2></div>
+    <p class="sec-sub">先说反直觉的：规则手册里单双打的分岔<b>只有两处半</b>，其余战术差异全部从这颗种子长出。条文号为 2026 GPF Edition。</p>
+    <div class="grid g3">
+
+      <div class="card"><span class="rule-tag">分岔 ①</span>
+        <h3>发球轮转</h3>
+        <p><b>单打</b>：一人发球，输一回合立即交权——「A side out occurs after the server loses a rally」（5.A.3）。<b>双打</b>：两人各发满一轮才 side out，开局例外只发一人次（5.B）。</p>
+        <div class="ref">这条决定了单打的记分压力：没有第二发球员兜底。</div>
+      </div>
+
+      <div class="card"><span class="rule-tag">分岔 ②</span>
+        <h3>喊分段数</h3>
+        <p><b>单打喊两段</b>（我分-你分，开局「0-0」，6.B.1）；<b>双打喊三段</b>（队分-队分-发球序，开局「0-0-2」，6.B.2）。Section 2 里 First/Second Server 四个定义全是双打专属概念。</p>
+        <div class="ref">听喊法就能判断对面是单打脑还是双打脑。</div>
+      </div>
+
+      <div class="card"><span class="rule-tag">分岔 ½</span>
+        <h3>Doubles-only 条文</h3>
+        <p>全文只有三处半显式双打专属：搭档任一人可呼报（8.A 尾句）、搭档分歧判界内（8.H）、空中沟通不算呼报（8.F.4）、双人同击球 fault（10.D.2）。<b>没有任何 singles-only 技术条文。</b></p>
+        <div class="ref">单打的「特殊性」全部由并列章节表达，而非例外条款。</div>
+      </div>
+
+      <div class="card"><span class="rule-tag">种子</span>
+        <h3>同宽全场</h3>
+        <p>「20 feet wide and 44 feet long <b>for both singles and doubles</b>」（3.A.1）——匹克球没有网球的单打窄场。<b>独自覆盖双打宽度</b>，是一切单双差异的规则根源。</p>
+        <div class="ref">角度战术、田径赛体能、空当哲学，都从这一行字长出来。</div>
+      </div>
+
+      <div class="card"><span class="rule-tag">全同</span>
+        <h3>不分单双的部分</h3>
+        <p>两跳规则（10.A）、厨房全部条款（11.A）、压线与呼报（8.B-8.F）、发球技术规则（<span style="white-space:nowrap">7.A-7.E）——</span><b>一字不改，单双同文</b>。先礼后兵里学过的判例，单打全部适用。</p>
+        <div class="ref">规则没变，变的是规则的「收益结构」。</div>
+      </div>
+
+      <div class="card"><span class="rule-tag">彩蛋</span>
+        <h3>Mini-Singles</h3>
+        <p>14.B 半场单打变体：每人只有比分决定的半场有效，中线用附加线延伸穿过厨房；两边有效区按各自比分独立决定——<b>可以对角，也可以同侧对轰</b>。</p>
+        <div class="ref">人少场地小时的最佳答案，国内贴线场馆友好。</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 公理镜像 ============ -->
+  <section id="axioms">
+    <div class="sec-head"><h2>公理<em style="color:var(--bing)">镜像</em></h2></div>
+    <p class="sec-sub">双打三公理经单打全域压力测试后的分型结果。判据一句话：<b>规则级公理跨场景稳定，均衡级公理随玩家数变。</b></p>
+
+    <div class="mirror">
+      <div class="m-side m-shuang"><b>双打 · 慢即快</b>两人墙让加速必被借力——你越用力对手越轻松，dink 与耐心是物理定律级的优势。</div>
+      <div class="arrow">⇄</div>
+      <div class="m-side m-dan"><b>单打 · 时间即战场</b>墙拆了，时间轴解冻：压缩他的回位，买回你的。深发球 0.09% ACE 率仍是头号武器——赢的是时间不是速度。</div>
+    </div>
+    <div class="mirror">
+      <div class="m-side m-shuang"><b>双打 · 位置即优势</b>网前赢九成：先到厨房线的两人是移动的墙，每一拍都在改善自己站位。</div>
+      <div class="arrow">⇄</div>
+      <div class="m-side m-dan"><b>单打 · 空当即靶</b>网前可被穿可被吊——网前从绝对优势降为挣来的优势，箭头反转：不再改善我站哪，而是恶化他不在哪。</div>
+    </div>
+    <div class="mirror">
+      <div class="m-side m-shuang"><b>双打 · 体能是背景</b>「慢即快」的隐含承诺：70 岁胜 30 岁，体能被规则结构性弱化。</div>
+      <div class="arrow">⇄</div>
+      <div class="m-side m-dan"><b>单打 · 体能即预算</b>步数 +15-19%，每一分花两笔钱（跑动费+时间费）。第三局的你是第一局你的残次品——战术要为残次品留执行半径。</div>
+    </div>
+    <div class="mirror">
+      <div class="m-side m-shuang"><b>双打 · 界面：同步</b>把搭档对齐成一面墙：解释规则、共享节奏、齐步走——一对搭档的上限是同步精度。</div>
+      <div class="arrow">⇄</div>
+      <div class="m-side m-dan"><b>单打 · 界面：读</b>把对手读成一本翻开的书：付费侦察、连攻弱侧、引拍一致、球路不三连——三公理给打法，读给靶子。</div>
+    </div>
+
+    <div class="verdict">
+      厨房宪法（规则级）是两边共同的地基；<em>「慢即快」与「网前赢九成」是双打均衡级主张</em>——它们成立靠的不只是那条 7 英尺的线，还有那面看不见的两人墙。墙在，慢胜快；墙拆，<em>空当即靶、时间即战场、体能即预算</em>。
+    </div>
+  </section>
+
+  <!-- ============ 迁移表 ============ -->
+  <section id="transfer">
+    <div class="sec-head"><h2>迁移<em style="color:var(--dan)">清单</em></h2></div>
+    <p class="sec-sub">双打老球友转战单打：左边六样直接带走，右边六样必须重写——<b>最贵的坑是把双打教条当默认设置。</b></p>
+    <div class="grid g2">
+      <div class="tr-col ok">
+        <header>✓ 能带走</header>
+        <ul>
+          <li>深发球、深接发的肌肉记忆——两个项目都把深度当第一指标</li>
+          <li>第三拍 drop 手感（单打放高版，买时间跟近）</li>
+          <li>厨房线的 volley、reset、手球技术</li>
+          <li>耐心与施压哲学：逼失误优于抢 winner</li>
+          <li>识弱侧打弱侧（反手 targeting 通用）</li>
+          <li>深度+旋转型地面击球质量训练</li>
+        </ul>
+      </div>
+      <div class="tr-col no">
+        <header>✗ 必须重写</header>
+        <ul>
+          <li>「发球只求稳」心态——单打发球必须武器化</li>
+          <li>drop 依赖症——单打默认线是 drive 与穿越</li>
+          <li>阵型概念：stacking、中路沟通、同步上网教条</li>
+          <li>斜线 dink 长拍套路——单打 dink 是快攻跳板</li>
+          <li>防守型 lob 使用习惯——单打大幅降频</li>
+          <li>Erne 训练优先级——时间花在覆盖与穿越上更值</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 数据 ============ -->
+  <section id="data">
+    <div class="sec-head"><h2>职业<em style="color:var(--bing)">数据</em></h2></div>
+    <p class="sec-sub">PPA 2023 半决赛+决赛记谱研究（男/女各约 1145 分）+ 职业访谈。数字是职业样本，方向对业余同样成立。</p>
+    <div class="grid g3">
+      <div class="card">
+        <div class="bignum">58.3<small> %</small></div>
+        <div class="cap">职业男单分数死于<b>非受迫性失误</b>（女单 <span style="white-space:nowrap">63.7%）——</span>顶级单打比的是失误管理，不是制胜分数量。</div>
+        <div class="ref">Applied Sciences 2024 · PPA 2023</div>
+      </div>
+      <div class="card">
+        <div class="bignum">0.09<small> %</small></div>
+        <div class="cap">1105 个职业发球的 ACE 率——只有 1 记。发球的价值从来是<b>深度与落点</b>，不是球速。</div>
+        <div class="ref">同上 · 短拉分（1-4 拍）发球方胜率 60.4%</div>
+      </div>
+      <div class="card">
+        <div class="bignum">46.6<small> %</small></div>
+        <div class="cap">男单<b>发球方</b>胜率——接发方占优；女单相反（55.1% 发球方占优）。男女两套流派：跟近上网 vs 底线阵地。</div>
+        <div class="ref">PPA 2023 记谱 · 男/女样本</div>
+      </div>
+      <div class="card">
+        <div class="bignum">+15<small>-19 %</small></div>
+        <div class="cap">单打每小时步数 3222 vs 双打 2790——独自覆盖全场的体能账单（娱乐人群实测，职业只多不少）。</div>
+        <div class="ref">Webber 2022 · PubMed 36087934</div>
+      </div>
+      <div class="card">
+        <div class="bignum">50.7<small> %</small></div>
+        <div class="cap">致命一击来自<b>中场过渡区</b>，厨房线内终结不足 <span style="white-space:nowrap">1%——</span>单打的攻击发起区与双打完全不同。</div>
+        <div class="ref">Applied Sciences 2024 · 最后一击站位分布</div>
+      </div>
+      <div class="card">
+        <div class="bignum">$250<small> K</small></div>
+        <div class="cap">2025 年出现<b>史上首个纯单打职业赛</b> LT Open（总奖金）——世界第一 Staksrud 同年抱怨「单打已变成迷你网球」。单打从不是没人打，只是刚被当独立产品经营。</div>
+        <div class="ref">Life Time 官方 · The Kitchen / The Dink 报道</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ teaser ============ -->
+  <section id="more">
+    <div class="sec-head"><h2>下<em style="color:var(--zhong)">一站</em></h2></div>
+    <p class="sec-sub">同一副骨架（规则分岔 → 十维对照 → 公理镜像 → 迁移清单），长在不同运动上。</p>
+    <div class="teaser">
+      <div class="t-card"><span class="em">🏸</span><b>羽毛球</b><small>单双差异最大的项目：马拉松象棋 vs 闪电配合</small></div>
+      <div class="t-card"><span class="em">🏓</span><b>乒乓球</b><small>轮转发球与斜线必须——规则强制的双人舞</small></div>
+      <div class="t-card"><span class="em">🎾</span><b>网球</b><small>唯一有单打窄场的项目，分岔写在场地上</small></div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site"><div class="wrap foot-in">
+  <div class="disclaim">
+    <div><b>口径与来源</b>：规则引自 <a href="https://globalpickleballfederation.org/docs/GPF-Rulebook-2026-edition.pdf" target="_blank">2026 GPF Edition 全文</a>（条文号级校对）；职业数据来自 PPA 2023 记谱研究（<a href="https://www.mdpi.com/2076-3417/14/19/8724" target="_blank">男子</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11755447" target="_blank">女子</a>）与 Webber 2022；战术共识综合 USAP / Pickleheads / The Dink / txpklball 等多源，详见调研档案。数据为职业/研究样本，业余训练取其方向不取其数值。</div>
+    <button class="share-btn" id="shareBtn">⧉ 复制分享文案</button>
+  </div>
+  <div style="text-align:right">
+    <div>各自为战 GEZIWEIZHAN · <a href="https://github.com/liyuankui/geziweizhan" target="_blank">GitHub</a> · MIT</div>
+    <div style="margin-top:6px">三板斧家族：<a href="https://liyuankui.github.io/sanbanfu/" target="_blank">技术矩阵</a> · <a href="https://liyuankui.github.io/xianlihoubing/" target="_blank">礼仪规则</a> · <a href="https://liyuankui.github.io/" target="_blank">Kyle Li</a></div>
+    <div style="margin-top:6px">羽毛球 / 乒乓球 / 网球 edition 制作中 · 2026</div>
+  </div>
+</div></footer>
+
+<script>
+// ── share ─────────────────────────────────────────────
+const SHARE_TXT = '各自为战｜单打 vs 双打一页看懂：双打打人单打打场——规则分岔只有两处半，战术宇宙整个反转（10 维对照+公理镜像+迁移清单+职业数据）https://liyuankui.github.io/geziweizhan/';
+document.getElementById('shareBtn').onclick = async () => {
+  try {
+    await navigator.clipboard.writeText(SHARE_TXT);
+    const b = document.getElementById('shareBtn'); b.textContent = '✓ 已复制';
+    setTimeout(() => b.textContent = '⧉ 复制分享文案', 1600);
+    track('share_copy', {});
+  } catch (e) {}
+};
+document.querySelectorAll('.nav-in a[href^="#"]').forEach(a => a.addEventListener('click', () => {
+  track('nav_click', { to: a.getAttribute('href').slice(1) });
+}));
+
+// ── PostHog Telemetry ─────────────────────────────────
+const POSTHOG_KEY = 'phc_AbKVVXPDZKThtUacCHhFOITuBczUvLmPStN1JAZs93e';
+const POSTHOG_ENDPOINT = 'https://eu.i.posthog.com/capture/';
+const PROJECT = 'geziweizhan';
+const UID_KEY = PROJECT + '-uid';
+
+function track(event, props = {}) {
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
+    try {
+        navigator.sendBeacon(POSTHOG_ENDPOINT, JSON.stringify({
+            api_key: POSTHOG_KEY,
+            event,
+            timestamp: new Date().toISOString(),
+            properties: {
+                distinct_id: localStorage.getItem(UID_KEY) || 'unknown',
+                project: PROJECT,
+                url: location.pathname,
+                page: 'index',
+                ref: (document.referrer ? new URL(document.referrer).hostname : 'direct'),
+                ...props
+            }
+        }));
+    } catch (e) {}
+}
+
+(function init() {
+    if (!localStorage.getItem(UID_KEY)) {
+        localStorage.setItem(UID_KEY, 'u-' + Math.random().toString(36).slice(2, 10));
+    }
+    track('page_view', {});
+})();
+</script>
+</body>
+</html>
