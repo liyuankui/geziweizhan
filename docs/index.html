@@ -722,13 +722,17 @@ footer.site a{color:#9fc3e8}
 
 <script>
 // ── share ─────────────────────────────────────────────
-const SHARE_TXT = '各自为战｜单打 vs 双打一页看懂：双打打人单打打场——规则分岔只有两处半，战术宇宙整个反转（10 维对照+公理镜像+迁移清单+职业数据）https://liyuankui.github.io/geziweizhan/';
+const SHARE_BY_SPORT = {
+  pp: '各自为战｜匹克球单打 vs 双打一页看懂：双打打人，单打打场——规则分岔只有两处半，战术宇宙整个反转（10 维对照+公理镜像+迁移清单+职业数据）https://liyuankui.github.io/geziweizhan/#pp',
+  bd: '各自为战｜羽毛球单打 vs 双打一页看懂：单打打角，双打打缝——lift 的语义反转是总开关（12 维对照+公理平移+迁移清单）https://liyuankui.github.io/geziweizhan/#bd'
+};
+const shareText = () => SHARE_BY_SPORT[document.body.dataset.view || 'pp'] || SHARE_BY_SPORT.pp;
 document.getElementById('shareBtn').onclick = async () => {
   try {
-    await navigator.clipboard.writeText(SHARE_TXT);
+    await navigator.clipboard.writeText(shareText());
     const b = document.getElementById('shareBtn'); b.textContent = '✓ 已复制';
     setTimeout(() => b.textContent = '⧉ 复制分享文案', 1600);
-    track('share_copy', {});
+    track('share_copy', { sport: document.body.dataset.view || 'pp' });
   } catch (e) {}
 };
 document.querySelectorAll('.nav-in a[href^="#"]').forEach(a => a.addEventListener('click', () => {
