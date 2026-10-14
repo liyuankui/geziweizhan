@@ -3,6 +3,7 @@
 > 双打打人，单打打场；单打打角，双打打缝。拍类运动单双差异一页看懂。已上线：匹克球 · 羽毛球（tab 切换 / #pp / #bd）。
 
 🔗 https://liyuankui.github.io/geziweizhan/
+> 🗺️ 家族总索引：[liyuankui.github.io/sports/](https://liyuankui.github.io/sports/)（四问×四运动矩阵）
 
 ## Features
 
