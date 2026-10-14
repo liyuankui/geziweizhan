@@ -759,6 +759,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const h = location.hash;
   if (h === '#bd' || h === '#pp') setSport(h.slice(1), false);
   else setSport('pp', true);
+  window.addEventListener('hashchange', () => {
+    const sp = location.hash.slice(1);
+    if ((sp === 'bd' || sp === 'pp') && (document.body.dataset.view || 'pp') !== sp) setSport(sp);
+  });
 });
 
 // ── PostHog Telemetry ─────────────────────────────────
